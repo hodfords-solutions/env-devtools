@@ -1,5 +1,5 @@
 {
-  "name": "env-react-devtools",
+  "name": "@hodfords/env-react-devtools",
   "version": "1.0.0",
   "author": "VietNa",
   "type": "module",
@@ -22,7 +22,8 @@
     "lint": "npx eslint --cache --fix",
     "tsc": "npx tsc --noEmit",
     "postinstall": "husky",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postbuild": "cp package.json dist && cp README.md dist && cp ../.npmrc dist"
   },
   "repository": {
     "type": "git",
@@ -37,12 +38,15 @@
     "**/*.{js,jsx,ts,tsx}": "pnpm run lint"
   },
   "license": "MIT",
-  "dependencies": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-router": "7.1.5"
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "react-router": "*"
   },
   "devDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router": "7.1.5",
     "vite-plugin-eslint2": "5.0.3",
     "@rollup/plugin-terser": "0.4.4",
     "@types/react": "18.3.5",

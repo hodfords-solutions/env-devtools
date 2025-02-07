@@ -1,0 +1,13 @@
+name: Publish Package to npmjs
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    uses: hodfords-solutions/actions/.github/workflows/publish.yaml@main
+    with:
+      build_path: reactjs/dist
+      package_path: reactjs
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
