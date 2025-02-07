@@ -1,20 +1,20 @@
 {
-  "name": "env-react-devtools",
+  "name": "@hodfords/env-react-devtools",
   "version": "1.0.0",
   "author": "VietNa",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "main": "index.cjs",
+  "module": "index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./index.js",
+      "require": "./index.cjs"
     }
   },
-  "types": "dist/index.d.ts",
+  "types": "index.d.ts",
   "description": "This is repo use for react project base",
   "scripts": {
     "build": "vite build",
@@ -22,7 +22,8 @@
     "lint": "npx eslint --cache --fix",
     "tsc": "npx tsc --noEmit",
     "postinstall": "husky",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postbuild": "cp package.json dist && cp README.md dist && cp ../.npmrc dist"
   },
   "repository": {
     "type": "git",
