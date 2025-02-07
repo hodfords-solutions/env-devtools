@@ -38,12 +38,15 @@
     "**/*.{js,jsx,ts,tsx}": "pnpm run lint"
   },
   "license": "MIT",
-  "dependencies": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-router": "7.1.5"
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "react-router": "*"
   },
   "devDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router": "7.1.5",
     "@nabla/vite-plugin-eslint": "2.0.4",
     "@rollup/plugin-terser": "0.4.4",
     "@types/react": "18.3.5",
