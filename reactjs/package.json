@@ -4,7 +4,6 @@
   "author": "VietNa",
   "type": "module",
   "files": [
-    "dist"
   ],
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -23,7 +22,7 @@
     "tsc": "npx tsc --noEmit",
     "postinstall": "husky",
     "prepare": "husky",
-    "postbuild": "cp package.json dist && cp README.md dist && cp ../.npmrc dist"
+    "postbuild": "mkdir build && cp -R dist build/dist && cp package.json build && cp README.md build && cp ../.npmrc build"
   },
   "repository": {
     "type": "git",

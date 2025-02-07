@@ -7,7 +7,7 @@ jobs:
   build:
     uses: hodfords-solutions/actions/.github/workflows/publish.yaml@main
     with:
-      build_path: dist
+      build_path: build
       package_path: reactjs
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
