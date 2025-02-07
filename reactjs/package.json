@@ -1,0 +1,75 @@
+{
+  "name": "env-react-devtools",
+  "version": "1.0.0",
+  "author": "VietNa",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "types": "dist/index.d.ts",
+  "description": "This is repo use for react project base",
+  "scripts": {
+    "build": "vite build",
+    "clean": "rm -rf dist public build",
+    "lint": "npx eslint --cache --fix",
+    "tsc": "npx tsc --noEmit",
+    "postinstall": "husky",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hodfords-solutions/env-devtools.git"
+  },
+  "engines": {
+    "npm": ">=10.2.3",
+    "node": ">=20.10.0",
+    "pnpm": ">=8.14.1"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": "pnpm run lint"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router": "7.1.5"
+  },
+  "devDependencies": {
+    "@nabla/vite-plugin-eslint": "2.0.4",
+    "@rollup/plugin-terser": "0.4.4",
+    "@types/react": "18.3.5",
+    "@types/react-dom": "18.3.0",
+    "@types/node": "22.10.2",
+    "@typescript-eslint/eslint-plugin": "8.3.0",
+    "@typescript-eslint/parser": "8.3.0",
+    "@vitejs/plugin-react": "4.3.1",
+    "autoprefixer": "10.4.20",
+    "eslint": "9.9.1",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-import-resolver-typescript": "3.6.3",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-react": "7.35.0",
+    "eslint-plugin-react-func": "0.1.18",
+    "eslint-plugin-react-hooks": "4.6.2",
+    "eslint-plugin-unused-imports": "4.1.3",
+    "husky": "9.1.5",
+    "lint-staged": "15.2.9",
+    "postcss": "8.4.47",
+    "prettier": "3.3.3",
+    "tailwindcss": "4.0.0",
+    "@tailwindcss/postcss": "4.0.3",
+    "typescript": "5.5.4",
+    "vite": "5.4.2",
+    "vite-plugin-dts": "4.2.1",
+    "vite-plugin-lib-inject-css": "2.2.1"
+  }
+}
