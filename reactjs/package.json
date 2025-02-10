@@ -1,6 +1,6 @@
 {
   "name": "@hodfords/env-react-devtools",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "VietNa",
   "type": "module",
   "files": [
@@ -21,8 +21,6 @@
     "clean": "rm -rf dist public build",
     "lint": "npx eslint --cache --fix",
     "tsc": "npx tsc --noEmit",
-    "postinstall": "husky",
-    "prepare": "husky",
     "postbuild": "mkdir build && cp -R dist build/dist && cp package.json build && cp README.md build && cp ../.npmrc build"
   },
   "repository": {
