@@ -20,9 +20,11 @@ const EnvContext = createContext<{ env: EnvProps; updateEnv: (data: EnvProps) =>
 export const useEnv = () => useContext(EnvContext);
 
 export const EnvProvider: FunctionComponent<EnvProviderProps> = ({ env, routes }) => {
+  const isDevMode = env.ENVIRONMENT && env.ENVIRONMENT === 'dev';
   const [envVars, setEnvVars] = useState<EnvProps>(() => {
     const storedEnv = localStorage.getItem('envVars');
     const data = storedEnv ? JSON.parse(storedEnv) : env;
+    delete data['ENVIRONMENT'];
     localStorage.setItem('envVars', JSON.stringify(data));
     return data;
   });
@@ -34,7 +36,7 @@ export const EnvProvider: FunctionComponent<EnvProviderProps> = ({ env, routes }
 
   const route: RouteObject = {
     path: '/devtools',
-    element: <EnvForm />,
+    element: <EnvForm isDevMode={isDevMode} />,
   };
 
   return (

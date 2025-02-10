@@ -10,21 +10,29 @@
 
 * Install [PNPM](https://pnpm.io/) latest version
 * Install Nodejs >= 20 ( Should be use [NVM](https://github.com/nvm-sh/nvm) for install NodeJS )
-* This library require `react-router` version >= 7.0.0
 
-* With NPM:
+* For ReactJS
+- This library require `react-router` version >= 7.0.0
+
+- NPM:
 ```
 npm install @hodfords/env-react-devtools --save
 ```
-
-* with PNPM:
+- PNPM:
 ```
 pnpm install @hodfords/env-react-devtools
 ```
 
+* For VueJS
+
+- Continue updating...
+
 ## Usage 🚀
 
 * First step, config project env and routes for project you want.
+* Currently, you don't need to use RouterProvider because in this library are using, just need config router paths for EnvProvider.
+
+* For ReactJS
 
 ```typescript
 import EnvProvider from '@hodfords/env-react-devtools';
@@ -37,7 +45,12 @@ import EnvProvider from '@hodfords/env-react-devtools';
 - `env`: Env data input form handle change for project
 - `routes`: Current routes of your project config merge with route devtools
 
-* Currently, you don't need to use RouterProvider because in this library are using, just need config router paths for EnvProvider.
+* For VueJS
+
+- Continue updating...
+
+## Note
+
 * For first time, when you save env configs it's will save to localStorage with name `envVars`. So you can sync env configs via localStorage for your project.
 * Access route path `/devtools` in your project after install package and finish setup.
 

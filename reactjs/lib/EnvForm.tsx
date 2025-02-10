@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { useEnv } from './EnvProvider';
 import type { FunctionComponent, FormEvent } from 'react';
 
-export const EnvForm: FunctionComponent = () => {
+interface EnvProps {
+  [key: string]: string | undefined;
+}
+
+export const EnvForm: FunctionComponent<{ isDevMode: boolean }> = ({ isDevMode }) => {
   const { env, updateEnv } = useEnv();
-  const [formValues, setFormValues] = useState(env);
+  const [formValues, setFormValues] = useState<EnvProps>(env);
   const [isShowAlert, showAlert] = useState(false);
-  const isDevMode = env.ENVIRONMENT && env.ENVIRONMENT === 'dev';
 
   const handleChange = (key: string, value: string) => {
     setFormValues((prev) => ({ ...prev, [key]: value }));
