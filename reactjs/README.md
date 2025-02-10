@@ -10,6 +10,7 @@
 
 * Install [PNPM](https://pnpm.io/) latest version
 * Install Nodejs >= 20 ( Should be use [NVM](https://github.com/nvm-sh/nvm) for install NodeJS )
+* This library require `react-router` version >= 7.0.0
 
 * With NPM:
 ```

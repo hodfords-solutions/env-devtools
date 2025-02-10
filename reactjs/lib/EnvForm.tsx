@@ -6,7 +6,7 @@ export const EnvForm: FunctionComponent = () => {
   const { env, updateEnv } = useEnv();
   const [formValues, setFormValues] = useState(env);
   const [isShowAlert, showAlert] = useState(false);
-  const isDevMode = env.ENVIRONMENT && env.ENVIRONMENT === 'development';
+  const isDevMode = env.ENVIRONMENT && env.ENVIRONMENT === 'dev';
 
   const handleChange = (key: string, value: string) => {
     setFormValues((prev) => ({ ...prev, [key]: value }));
