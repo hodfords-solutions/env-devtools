@@ -13,7 +13,7 @@ interface EnvProviderProps {
   children: ReactNode;
 }
 
-const EnvContext = createContext<{ env: EnvProps; updateEnv: (key: string, value: string) => void }>({
+const EnvContext = createContext<{ env: EnvProps; updateEnv: (data: EnvProps) => void }>({
   env: {},
   updateEnv: () => {},
 });
@@ -22,34 +22,25 @@ export const useEnv = () => useContext(EnvContext);
 
 export const EnvProvider: FunctionComponent<EnvProviderProps> = ({ env, routes, children }) => {
   const [envVars, setEnvVars] = useState<EnvProps>(() => {
-    const storedEnv = localStorage.getItem("envVars");
-    return storedEnv ? JSON.parse(storedEnv) : env;
+    const storedEnv = localStorage.getItem('envVars');
+    const data = storedEnv ? JSON.parse(storedEnv) : env;
+    localStorage.setItem('envVars', JSON.stringify(data));
+    return data;
   });
 
-  useEffect(() => {
-    localStorage.setItem("envVars", JSON.stringify(envVars));
-  }, [envVars]);
-
-  const updateEnv = (key: string, value: string) => {
-    setEnvVars((prev) => {
-      const updatedEnv = { ...prev, [key]: value };
-      localStorage.setItem("envVars", JSON.stringify(updatedEnv)); // Persist to localStorage
-      return updatedEnv;
-    });
+  const updateEnv = (data: EnvProps) => {
+    setEnvVars(data);
+    localStorage.setItem('envVars', JSON.stringify(data));
   };
 
-  const envSettingsRoute: RouteObject = {
-    path: "/devtools",
+  const route: RouteObject = {
+    path: '/devtools',
     element: <EnvForm />,
   };
 
-  const allRoutes = [...routes, envSettingsRoute];
-
-  const router = createBrowserRouter(allRoutes);
-
   return (
     <EnvContext.Provider value={{ env: envVars, updateEnv }}>
-      <RouterProvider router={router} />
+      <RouterProvider router={createBrowserRouter([...routes, route])} />
       {children}
     </EnvContext.Provider>
   );

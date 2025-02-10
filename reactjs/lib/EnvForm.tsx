@@ -6,7 +6,7 @@ export const EnvForm: FunctionComponent = () => {
   const { env, updateEnv } = useEnv();
   const [formValues, setFormValues] = useState(env);
   const [isShowAlert, showAlert] = useState(false);
-  const isDevMode = env.ENVIRONMENT === 'development';
+  const isDevMode = env.ENVIRONMENT && env.ENVIRONMENT === 'development';
 
   const handleChange = (key: string, value: string) => {
     setFormValues((prev) => ({ ...prev, [key]: value }));
@@ -14,9 +14,7 @@ export const EnvForm: FunctionComponent = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    Object.entries(formValues).forEach(([key, value]) => {
-      updateEnv(key, value);
-    });
+    updateEnv(formValues);
     showAlert(true);
     setTimeout(() => {
       showAlert(false);

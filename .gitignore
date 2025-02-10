@@ -3,6 +3,7 @@
 /node_modules
 /public
 /**/node_modules
+/**/build
 /**/dist
 
 # Logs
