@@ -22,7 +22,8 @@
     "lint": "npx eslint --cache --fix",
     "tsc": "npx tsc --noEmit",
     "postinstall": "husky",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postbuild": "mkdir build && cp -R dist build/dist && cp package.json build && cp README.md build && cp ../.npmrc build"
   },
   "repository": {
     "type": "git",
