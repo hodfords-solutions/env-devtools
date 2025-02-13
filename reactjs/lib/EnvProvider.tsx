@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState, lazy } from 'react';
 import { createBrowserRouter, RouterProvider, RouteObject } from 'react-router';
-import { EnvForm } from './EnvForm';
 import type { FunctionComponent } from 'react';
 
 interface EnvProps {
@@ -16,6 +15,8 @@ const EnvContext = createContext<{ env: EnvProps; updateEnv: (data: EnvProps) =>
   env: {},
   updateEnv: () => {},
 });
+
+const DevToolsPage = lazy(() => import('./EnvForm'));
 
 export const useEnv = () => useContext(EnvContext);
 
@@ -36,7 +37,7 @@ export const EnvProvider: FunctionComponent<EnvProviderProps> = ({ env, routes }
 
   const route: RouteObject = {
     path: '/devtools',
-    element: <EnvForm isDevMode={isDevMode} />,
+    element: <DevToolsPage isDevMode={isDevMode} />,
   };
 
   return (
